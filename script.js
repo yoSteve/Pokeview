@@ -6,6 +6,18 @@ const imageElement = document.getElementById('sprite-image');
 const pokemonInput = document.getElementById('pokemon-input');
 const searchButton = document.getElementById('search-button');
 
+// Event listener for search button
+searchButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  const pokemon = pokemonInput.value.trim();
+  if (pokemon) {
+      fetchAndDisplayPokemon(pokemon);
+      fetchAndDisplayFlavorText(pokemon);
+  } else {
+      handleError('Please enter a Pokémon name or Pokédex ID.')
+  }
+});
+
 // Fetch and display Pokémon data based on name or ID
 async function fetchAndDisplayPokemon(pokemon) {
     try {
@@ -36,18 +48,6 @@ async function fetchAndDisplayPokemon(pokemon) {
       };
     }
 }
-
-// Event listener for search button
-searchButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    const pokemon = pokemonInput.value.trim();
-    if (pokemon) {
-        fetchAndDisplayPokemon(pokemon);
-        fetchAndDisplayFlavorText(pokemon);
-    } else {
-        handleError('Please enter a Pokémon name or Pokédex ID.')
-    }
-});
 
 function handleError(error) {
   console.error('Error fetching Pokémon data:', error);
@@ -111,12 +111,11 @@ async function fetchAndDisplayFlavorText(pokemon) {
     const data = await response.json();
 
     const entries = data['flavor_text_entries'];
-    flavourTextContainer.innerText =entries[0]['flavor_text'];
+    flavourTextContainer.innerText = `"${entries[0]['flavor_text']}"`;
   } catch (error) {
     handleError(error);
   }
 }
 
 // Run the app:
-fetchAndDisplayPokemon('25');
-fetchAndDisplayFlavorText('25')
+fetchAndDisplayPokemon();

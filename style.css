@@ -51,7 +51,11 @@ h1 {
   -webkit-text-stroke: 3px var(--pokemon-title-blue);
 }
 
-form.controls {
+p {
+  margin: 0;
+}
+
+form {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -60,6 +64,8 @@ form.controls {
 .pokemon-pic {
   width: 100px;
   height: 100px;
+  border: 3px solid var(--pokeball-black);
+  border-radius: 6px;
 }
 
 .input-wrapper {
@@ -89,8 +95,12 @@ form.controls {
   cursor: pointer;
 }
 
+#flavour-text {
+  font-style: italic;
+  margin-top: 1rem;
+  color: var(--pokeball-black);
+}
 
 .error {
   color: var(--pokeball-red-2);
-  margin: 0;
 }
