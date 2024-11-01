@@ -8,17 +8,24 @@
 </head>
 <body>
     <div id="app">
-      <h1>Poké View</h1>
-      <form id="controls">
-          <label for="pokemon-input">Enter Pokémon Name or Pokédex ID:</label>
-          <input type="text" id="pokemon-input" placeholder="e.g., Pikachu or 25">
-          <button id="search-button" type="submit">Search</button>
-      </form>
+      <header class="card">
+        <h1>Pokéview</h1>
+        <form id="controls">
+          <label for="pokemon-input">Enter Pokémon name or Pokédex ID:</label>
+          <div class="input-wrapper">
+            <input type="text" id="pokemon-input" placeholder="e.g., Pikachu or 25">
+            <button id="search-button" type="submit">Search</button>
+          </div>
+          <div id="error-container">
+            <!-- Error messages will be displayed here -->
+          </div>
+        </form>
+      </header>
 
-      <div id="profile-container">
+      <div id="profile-container" class="card">
         <img id="sprite-image" src="assets/poke-ball.png" alt="${data.name}" class="pokemon-pic">
 
-        <div id="details" class="details">
+        <div id="details-container" class="details">
           <!-- Pokémon information will be displayed here -->
         </div>
         <p id="flavour-text">

@@ -1,5 +1,6 @@
 // Elements for displaying Pokémon info
-const detailsContainer = document.getElementById('details');
+const detailsContainer = document.getElementById('details-container');
+const errorContainer = document.getElementById('error-container');
 const flavourTextContainer = document.getElementById('flavour-text');
 const imageElement = document.getElementById('sprite-image');
 const pokemonInput = document.getElementById('pokemon-input');
@@ -50,7 +51,7 @@ searchButton.addEventListener('click', (event) => {
 
 function handleError(error) {
   console.error('Error fetching Pokémon data:', error);
-  detailsContainer.innerHTML = `<p class="error">${error.message}</p>`;
+  errorContainer.innerHTML = `<p class="error">${error.message}</p>`;
 }
 
 // Analyze pokemon sprite image and exctract color palette
@@ -98,9 +99,9 @@ function extractColorPalette(img, colorCount = 5) {
 
 function setColorPaletteVars([ color1, color2, color3 ]) {
   const root = document.querySelector(':root');
-  root.style.setProperty('--color-1', color1);
-  root.style.setProperty('--color-2', color2);
-  root.style.setProperty('--color-3', color3);
+  root.style.setProperty('--gradient-color-1', color1);
+  root.style.setProperty('--gradient-color-2', color2);
+  root.style.setProperty('--gradient-color-3', color3);
 }
 
 async function fetchAndDisplayFlavorText(pokemon) {
@@ -117,4 +118,5 @@ async function fetchAndDisplayFlavorText(pokemon) {
 }
 
 // Run the app:
-fetchAndDisplayPokemon();
+fetchAndDisplayPokemon('25');
+fetchAndDisplayFlavorText('25')

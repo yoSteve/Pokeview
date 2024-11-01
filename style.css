@@ -1,8 +1,14 @@
 /* style.css */
 :root {
-  --color-1: rgb(247,10,4);
-  --color-2: rgb(0,0,0);
-  --color-3: rgb(255,255,255);
+  --pokeball-red: rgb(248, 53, 38);
+  --pokeball-red-2: rgb(193, 45, 24);
+  --pokeball-black: rgb(71, 79, 78);
+  --pokemon-title-yellow: #ffde00;
+  --pokemon-title-blue: #3b4cca;
+
+  --gradient-color-1: var(--pokeball-red);
+  --gradient-color-2: var(--pokeball-black);
+  --gradient-color-3: white;
 }
 
 body {
@@ -12,17 +18,23 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background: var(--color-1);
+  background: var(--gradient-color-1);
   background: linear-gradient(
     112deg,
-    var(--color-1) 33%,
-    var(--color-2) 33%,
-    var(--color-2) 66%,
-    var(--color-3) 66%
+    var(--gradient-color-1) 33%,
+    var(--gradient-color-2) 33%,
+    var(--gradient-color-2) 66%,
+    var(--gradient-color-3) 66%
   );
 }
 
 #app {
+  display: grid;
+  grid-template-rows: min-content auto;
+  gap: 1rem
+}
+
+.card {
   text-align: center;
   max-width: 400px;
   padding: 20px;
@@ -31,17 +43,54 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+h1 {
+  font-size: 50px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin-top: 0;
+  -webkit-text-fill-color: 	var(--pokemon-title-yellow);
+  -webkit-text-stroke: 3px var(--pokemon-title-blue);
+}
+
+form.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
 .pokemon-pic {
   width: 100px;
   height: 100px;
 }
 
-button {
-  margin-top: 10px;
-  padding: 5px 10px;
-  font-size: 1em;
+.input-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
+.input-wrapper > input {
+  border: 3px solid var(--pokeball-black);
+  padding: 0.5rem 1rem;
+  border-radius: 6px 0 0 6px;
+  border-right: 6px solid var(--pokeball-black);
+}
+
+.input-wrapper > button {
+  color: white;
+  background-color: var(--pokeball-red);
+  padding: 0.5rem 1rem;
+  font-size: 1em;
+  border: 3px solid var(--pokeball-red-2);
+  border-left: 6px solid var(--pokeball-red-2);
+  border-radius: 0 6px 6px 0;
+}
+
+.input-wrapper > button:hover {
+  background-color: var(--pokeball-red-2);
+  cursor: pointer;
+}
+
+
 .error {
-  color: red
+  color: var(--pokeball-red-2);
+  margin: 0;
 }
