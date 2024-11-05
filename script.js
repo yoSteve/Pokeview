@@ -26,7 +26,7 @@ searchButton.addEventListener('click', async (event) => {
 });
 
 // Listen for image change, and update color palette.
-imageElement.addEventListener('load', () => updateColorPalette())
+imageElement.addEventListener('load', () => updateColorPalette(imageElement))
 
 // Fetch and display Pokémon data based on name or ID
 async function fetchPokemonData(pokemon) {
@@ -76,7 +76,7 @@ function displayFlavourText(content) {
   flavourTextContainer.innerText = content;
 }
 
-function updateColorPalette() {
+function updateColorPalette(imageElement) {
   const palette = extractColorPalette(imageElement, 3);
   setColorPaletteVars(palette);
 }

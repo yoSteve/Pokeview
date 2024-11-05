@@ -80,6 +80,13 @@ form {
   border-right: 6px solid var(--pokeball-black);
 }
 
+.input-wrapper > button:focus,
+.input-wrapper > input:focus {
+  outline: none;
+  border-color: var(--pokemon-title-blue);
+  box-shadow: 0 0 5px var(--pokemon-title-blue);
+}
+
 .input-wrapper > button {
   color: white;
   background-color: var(--pokeball-red);
