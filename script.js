@@ -15,6 +15,7 @@ searchButton.addEventListener('click', async (event) => {
       clearError(); // removes previous error message (if any)
 
       const pokemonData = await fetchPokemonData(pokemon);
+      console.log('data', pokemonData)
       if (pokemonData) displayPokemon(pokemonData);
 
       const flavourText = await fetchFlavorText(pokemon);
@@ -33,7 +34,6 @@ async function fetchPokemonData(pokemon) {
     try {
         // Fetch Pokémon data from the API. Accepts a name or id (string)
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`);
-
         if (!response.ok) throw new Error('Pokémon not found');
 
         return await response.json();
