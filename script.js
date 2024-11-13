@@ -15,7 +15,7 @@ searchButton.addEventListener('click', async (event) => {
       clearError(); // removes previous error message (if any)
 
       const pokemonData = await fetchPokemonData(pokemon);
-      console.log('data', pokemonData)
+
       if (pokemonData) displayPokemon(pokemonData);
 
       const flavourText = await fetchFlavorText(pokemon);
