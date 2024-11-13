@@ -5,7 +5,7 @@
 You will create a simple Pokémon Viewer application using HTML, CSS, and JavaScript. This app will allow users to search for Pokémon by name or ID and see their details, like sprite image, types, and abilities.
 
 ### Example:
-[Pokéview: the Pokémon Viewer](/poke-view/index.html)
+[Pokéview: the Pokémon Viewer](https://yosteve.github.io/Pokeview/)
 
 ### Submission Checklist
 - [ ] **HTML** is structured with a header, input form, display sections for Pokémon details, and an error message area.
